@@ -4,6 +4,7 @@ import { MiniCard } from "@/components/home/mini-card";
 import { RevealObserver } from "@/components/home/reveal-observer";
 import { NavButton } from "@/components/nav-button";
 import { GAMES, type NeonColor } from "@/lib/games";
+import { formatNumber } from "@/lib/format";
 
 type Feature = { icon: FeatureIconKind; title: string; desc: string; color: NeonColor };
 type Stat = { n: string; u: string; s: string };
@@ -154,7 +155,7 @@ export default function Home() {
                 <div key={r.player} className="tick-row" style={{ animationDelay: (i * 60) + "ms" }}>
                   <span className={"tk-p neon-" + r.color}>{r.player}</span>
                   <span className="tk-mid">▸ {r.game}</span>
-                  <span className="tk-s">+{r.score.toLocaleString("es-ES")}</span>
+                  <span className="tk-s">+{formatNumber(r.score)}</span>
                   <span className="tk-t">{r.ago}</span>
                 </div>
               ))}
@@ -172,7 +173,7 @@ export default function Home() {
                   <span className="tp-rk">#{String(r.rank).padStart(2, "0")}</span>
                   <span className="tp-bar"><span className="tp-fill" style={{ width: (100 - i * 16) + "%" }}></span></span>
                   <span className="tp-p">{r.player}</span>
-                  <span className="tp-s">{r.score.toLocaleString("es-ES")}</span>
+                  <span className="tp-s">{formatNumber(r.score)}</span>
                 </div>
               ))}
             </div>

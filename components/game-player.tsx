@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { NavButton } from "@/components/nav-button";
 import { useSession } from "@/components/session-provider";
 import type { Game } from "@/lib/games";
+import { formatNumber } from "@/lib/format";
 
 // Simulated run: no real game, the score just ticks up while not paused.
 const INITIAL_RUN = { score: 0, lives: 3, level: 1 };
@@ -47,7 +48,7 @@ export function GamePlayer({ game }: { game: Game }) {
           </div>
           <div className="hud-stat">
             <div className="l">Puntuación</div>
-            <div className="v">{run.score.toLocaleString("es-ES")}</div>
+            <div className="v">{formatNumber(run.score)}</div>
           </div>
           <div className="hud-stat lives">
             <div className="l">Vidas</div>
@@ -97,7 +98,7 @@ export function GamePlayer({ game }: { game: Game }) {
           <div className="modal">
             <h2>FIN DEL JUEGO</h2>
             <div className="final-label">PUNTUACIÓN FINAL</div>
-            <div className="final">{run.score.toLocaleString("es-ES")}</div>
+            <div className="final">{formatNumber(run.score)}</div>
             {!saved ? (
               <div className="input-row">
                 <input

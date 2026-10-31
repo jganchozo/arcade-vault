@@ -3,6 +3,7 @@ import { GameCover } from "@/components/game-cover";
 import { Leaderboard } from "@/components/leaderboard";
 import { NavButton } from "@/components/nav-button";
 import { GAMES, getGame, seededScores } from "@/lib/games";
+import { formatNumber } from "@/lib/format";
 
 export function generateStaticParams() {
   return GAMES.map((g) => ({ id: g.id }));
@@ -38,7 +39,7 @@ export default async function GameDetailPage({ params }: PageProps<"/games/[id]"
             <div>
               <div className="l">Mejor global</div>
               <div className="v" style={{ color: "var(--magenta)", textShadow: "0 0 6px rgba(255,0,110,0.5)" }}>
-                {game.best.toLocaleString("es-ES")}
+                {formatNumber(game.best)}
               </div>
             </div>
             <div>

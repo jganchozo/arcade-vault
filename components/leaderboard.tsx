@@ -1,4 +1,5 @@
 import type { ScoreRow } from "@/lib/games";
+import { formatNumber } from "@/lib/format";
 
 const PODIUM_CLASS = [" top1", " top2", " top3"];
 
@@ -13,7 +14,7 @@ export function Leaderboard({ rows }: { rows: ScoreRow[] }) {
             {r.name}
             <div style={{ fontSize: 10, color: "var(--ink-faint)", letterSpacing: "0.1em" }}>{r.date}</div>
           </div>
-          <div className="sc">{r.score.toLocaleString("es-ES")}</div>
+          <div className="sc">{formatNumber(r.score)}</div>
         </div>
       ))}
     </div>
