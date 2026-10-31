@@ -6,11 +6,11 @@ import { CATEGORIES, GAMES } from "@/lib/games";
 
 export function Library() {
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState<(typeof CATEGORIES)[number]>("TODOS");
+  const [category, setCategory] = useState<(typeof CATEGORIES)[number]>("ALL");
 
   const filtered = GAMES.filter(
     (g) =>
-      (category === "TODOS" || g.category === category) &&
+      (category === "ALL" || g.category === category) &&
       g.title.toLowerCase().includes(query.toLowerCase()),
   );
 
