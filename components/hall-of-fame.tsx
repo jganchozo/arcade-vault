@@ -20,8 +20,8 @@ export function HallOfFame() {
   return (
     <div className="av-hall fade-in">
       <div className="hall-head">
-        <h1>SALÓN DE LA FAMA</h1>
-        <p className="pixel" style={{ fontSize: 10 }}>LOS NOMBRES QUE NUNCA SE BORRAN DE LA PANTALLA</p>
+        <h1>HALL OF FAME</h1>
+        <p className="pixel" style={{ fontSize: 10 }}>THE NAMES THAT NEVER FADE FROM THE SCREEN</p>
       </div>
 
       <div className="hall-tabs">
@@ -40,7 +40,7 @@ export function HallOfFame() {
           <div className="date">{rows[1].date}</div>
         </div>
         <div className="podium-slot gold">
-          <div className="pixel" style={{ fontSize: 9, color: "var(--gold)", letterSpacing: "0.18em" }}>CAMPEÓN</div>
+          <div className="pixel" style={{ fontSize: 9, color: "var(--gold)", letterSpacing: "0.18em" }}>CHAMPION</div>
           <div className="rank-num" style={{ fontSize: 36, marginTop: 4 }}>01</div>
           <div className="name">{rows[0].name}</div>
           <div className="score" style={{ fontSize: 20 }}>{formatNumber(rows[0].score)}</div>
@@ -56,10 +56,10 @@ export function HallOfFame() {
 
       <div className="hall-table">
         <div className="th">
-          <div>RANGO</div>
-          <div>JUGADOR</div>
-          <div>PUNTUACIÓN</div>
-          <div>FECHA</div>
+          <div>RANK</div>
+          <div>PLAYER</div>
+          <div>SCORE</div>
+          <div>DATE</div>
         </div>
         {rows.map((r, i) => (
           <div
@@ -75,7 +75,7 @@ export function HallOfFame() {
         ))}
         {user && (
           <>
-            <div className="tr you-label">▸ TU MEJOR MARCA EN {game.title}</div>
+            <div className="tr you-label">▸ YOUR BEST IN {game.title}</div>
             <div className="tr you" style={{ animationDelay: `${rows.length * 50 + 50}ms` }}>
               <div className="rk" style={{ color: "var(--yellow)" }}>#{String(youRank).padStart(2, "0")}</div>
               <div className="pl" style={{ color: "var(--yellow)" }}>{user.name}</div>
@@ -89,7 +89,7 @@ export function HallOfFame() {
       </div>
 
       <div style={{ textAlign: "center", marginTop: 32 }}>
-        <NavButton href="/games" className="btn lg">VOLVER A LA BIBLIOTECA</NavButton>
+        <NavButton href="/games" className="btn lg">BACK TO LIBRARY</NavButton>
       </div>
     </div>
   );

@@ -30,34 +30,34 @@ export function AuthForm() {
           <div className="mark"></div>
           <h2 className="neon-cyan">ARCADE VAULT</h2>
           <div className="mono" style={{ fontSize: 11, color: "var(--ink-faint)", letterSpacing: "0.16em", marginTop: 6 }}>
-            ACCESO AL SISTEMA · v2.6
+            SYSTEM ACCESS · v2.6
           </div>
         </div>
 
         <div className="auth-tabs">
-          <button className={tab === "in" ? "on" : ""} onClick={() => setTab("in")}>INICIAR SESIÓN</button>
-          <button className={tab === "up" ? "on" : ""} onClick={() => setTab("up")}>CREAR CUENTA</button>
+          <button className={tab === "in" ? "on" : ""} onClick={() => setTab("in")}>SIGN IN</button>
+          <button className={tab === "up" ? "on" : ""} onClick={() => setTab("up")}>CREATE ACCOUNT</button>
         </div>
 
         <form onSubmit={submit}>
           <div className="field">
-            <label htmlFor="auth-user">Usuario</label>
+            <label htmlFor="auth-user">Username</label>
             <input id="auth-user" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="px_kai" />
           </div>
           {tab === "up" && (
             <div className="field slide-in">
-              <label htmlFor="auth-email">Correo electrónico</label>
+              <label htmlFor="auth-email">Email</label>
               <input
                 id="auth-email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="jugador@vault.gg"
+                placeholder="player@vault.gg"
               />
             </div>
           )}
           <div className="field">
-            <label htmlFor="auth-pass">Contraseña</label>
+            <label htmlFor="auth-pass">Password</label>
             <input
               id="auth-pass"
               type="password"
@@ -68,22 +68,22 @@ export function AuthForm() {
           </div>
 
           <button className="btn lg" type="submit" style={{ width: "100%", marginTop: 8 }}>
-            {tab === "in" ? "ENTRAR AL VAULT" : "CREAR Y JUGAR"}
+            {tab === "in" ? "ENTER THE VAULT" : "CREATE & PLAY"}
           </button>
         </form>
 
         <button className="btn ghost" style={{ width: "100%", marginTop: 10 }} onClick={() => enter(null)}>
-          JUGAR COMO INVITADO
+          PLAY AS GUEST
         </button>
 
-        <div className="auth-divider">O CONTINÚA CON</div>
+        <div className="auth-divider">OR CONTINUE WITH</div>
         <div className="social">
           <button className="btn ghost" type="button">◆  GOOGLE</button>
           <button className="btn ghost" type="button">▣  GITHUB</button>
         </div>
 
         <div style={{ marginTop: 18, textAlign: "center", fontSize: 11, color: "var(--ink-faint)", letterSpacing: "0.1em" }}>
-          AL ENTRAR ACEPTAS LOS TÉRMINOS DEL SALÓN ARCADE
+          BY ENTERING YOU ACCEPT THE ARCADE HALL TERMS
         </div>
       </div>
     </div>
