@@ -34,3 +34,7 @@ Tailwind v4 is wired through a Turbopack loader rule for `*.css` in `next.config
 ## Paths
 
 `@/*` resolves to the project root (e.g. `@/app/...`).
+
+## Skills
+
+Always use `/frontend-design` when designing the user interface.
