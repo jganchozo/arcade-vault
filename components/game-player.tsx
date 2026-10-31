@@ -9,11 +9,21 @@ import type { Game } from "@/lib/games";
 const INITIAL_RUN = { score: 0, lives: 3, level: 1 };
 
 export function GamePlayer({ game }: { game: Game }) {
-  const { user } = useSession();
+  const { user, saveScore } = useSession();
   const [run, setRun] = useState(INITIAL_RUN);
   const [paused, setPaused] = useState(false);
   const [over, setOver] = useState(false);
-  const name = user ? user.name : "INVITADO";
+  const [saved, setSaved] = useState(false);
+  // null until the player edits it, so the signed-in name shows once the session loads.
+  const [nameInput, setNameInput] = useState<string | null>(null);
+  const name = nameInput ?? (user ? user.name : "INVITADO");
+
+  const restart = () => {
+    setRun(INITIAL_RUN);
+    setPaused(false);
+    setOver(false);
+    setSaved(false);
+  };
 
   useEffect(() => {
     if (over || paused) return;
@@ -81,6 +91,40 @@ export function GamePlayer({ game }: { game: Game }) {
           <span>CARGA · 1MB</span>
         </div>
       </div>
+
+      {over && (
+        <div className="modal-bd">
+          <div className="modal">
+            <h2>FIN DEL JUEGO</h2>
+            <div className="final-label">PUNTUACIÓN FINAL</div>
+            <div className="final">{run.score.toLocaleString("es-ES")}</div>
+            {!saved ? (
+              <div className="input-row">
+                <input
+                  value={name}
+                  onChange={(e) => setNameInput(e.target.value.toUpperCase().slice(0, 10))}
+                  placeholder="TUS INICIALES"
+                />
+                <button
+                  className="btn yellow"
+                  onClick={() => {
+                    saveScore({ game: game.id, score: run.score, name });
+                    setSaved(true);
+                  }}
+                >
+                  GUARDAR PUNTUACIÓN
+                </button>
+              </div>
+            ) : (
+              <div className="toast-saved">▸ PUNTUACIÓN GUARDADA_</div>
+            )}
+            <div className="actions">
+              <button className="btn" onClick={restart}>JUGAR DE NUEVO</button>
+              <NavButton href="/" className="btn magenta">VOLVER AL VAULT</NavButton>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
