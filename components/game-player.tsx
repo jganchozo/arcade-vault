@@ -120,7 +120,7 @@ export function GamePlayer({ game }: { game: Game }) {
             )}
             <div className="actions">
               <button className="btn" onClick={restart}>JUGAR DE NUEVO</button>
-              <NavButton href="/" className="btn magenta">VOLVER AL VAULT</NavButton>
+              <NavButton href="/games" className="btn magenta">VOLVER AL VAULT</NavButton>
             </div>
           </div>
         </div>

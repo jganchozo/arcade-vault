@@ -88,7 +88,7 @@ export function HallOfFame() {
       </div>
 
       <div style={{ textAlign: "center", marginTop: 32 }}>
-        <NavButton href="/" className="btn lg">VOLVER A LA BIBLIOTECA</NavButton>
+        <NavButton href="/games" className="btn lg">VOLVER A LA BIBLIOTECA</NavButton>
       </div>
     </div>
   );
