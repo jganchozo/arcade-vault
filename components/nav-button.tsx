@@ -6,15 +6,17 @@ import { useRouter } from "next/navigation";
 export function NavButton({
   href,
   className,
+  style,
   children,
 }: {
   href: string;
   className: string;
+  style?: React.CSSProperties;
   children: React.ReactNode;
 }) {
   const router = useRouter();
   return (
-    <button className={className} onClick={() => router.push(href)}>
+    <button className={className} style={style} onClick={() => router.push(href)}>
       {children}
     </button>
   );
