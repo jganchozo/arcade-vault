@@ -5,7 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { useSession } from "@/components/session-provider";
 
-type Section = "library" | "hall-of-fame" | "sign-in";
+type Section = "home" | "library" | "hall-of-fame" | "about" | "sign-in";
 
 export function Nav() {
   const pathname = usePathname();
@@ -15,7 +15,8 @@ export function Nav() {
 
   // Game detail and player pages belong to the library section.
   const isActive = (section: Section) => {
-    if (section === "library") return pathname === "/" || pathname.startsWith("/games");
+    if (section === "home") return pathname === "/";
+    if (section === "library") return pathname === "/games" || pathname.startsWith("/games/");
     return pathname === `/${section}`;
   };
   const activeClass = (section: Section) => (isActive(section) ? "active" : "");
@@ -31,8 +32,10 @@ export function Nav() {
           </div>
         </Link>
         <div className="links">
-          <Link href="/" className={activeClass("library")}>Biblioteca</Link>
+          <Link href="/" className={activeClass("home")}>Inicio</Link>
+          <Link href="/games" className={activeClass("library")}>Biblioteca</Link>
           <Link href="/hall-of-fame" className={activeClass("hall-of-fame")}>Salón de la Fama</Link>
+          <Link href="/about" className={activeClass("about")}>Acerca de</Link>
         </div>
         <div className="spacer"></div>
         <div className="coin-counter">
@@ -50,8 +53,10 @@ export function Nav() {
       <div className={"av-mobile-backdrop" + (open ? " open" : "")} onClick={close}></div>
       <aside className={"av-mobile-panel" + (open ? " open" : "")}>
         <div className="pixel neon-cyan" style={{ fontSize: 11, marginBottom: 16 }}>MENÚ</div>
-        <Link href="/" className={activeClass("library")} onClick={close}>Biblioteca</Link>
+        <Link href="/" className={activeClass("home")} onClick={close}>Inicio</Link>
+        <Link href="/games" className={activeClass("library")} onClick={close}>Biblioteca</Link>
         <Link href="/hall-of-fame" className={activeClass("hall-of-fame")} onClick={close}>Salón de la Fama</Link>
+        <Link href="/about" className={activeClass("about")} onClick={close}>Acerca de</Link>
         <Link href="/sign-in" className={activeClass("sign-in")} onClick={close}>{user ? "Cuenta" : "Iniciar Sesión"}</Link>
         <div style={{ flex: 1 }}></div>
         <div className="pixel" style={{ fontSize: 9, color: "var(--ink-faint)", letterSpacing: "0.16em" }}>CRÉDITOS · 03</div>
