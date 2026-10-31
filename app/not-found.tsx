@@ -5,13 +5,13 @@ export default function NotFound() {
     <section className="av-hero fade-in">
       <h1 className="flicker">404</h1>
       <div className="sub">
-        PANTALLA NO ENCONTRADA <span className="blink">_</span>
+        SCREEN NOT FOUND <span className="blink">_</span>
       </div>
       <p style={{ color: "var(--ink-dim)", margin: "24px auto 32px", maxWidth: "48ch" }}>
-        Esta dirección no existe en el vault. Vuelve a la biblioteca para elegir un juego.
+        This address doesn't exist in the vault. Head back to the library to pick a game.
       </p>
       <Link href="/games" className="btn lg">
-        VOLVER A LA BIBLIOTECA
+        BACK TO LIBRARY
       </Link>
     </section>
   );
