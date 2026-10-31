@@ -1,6 +1,6 @@
 # SPEC 02 — Home landing page
 
-> **Status:** Approved
+> **Status:** Implemented
 > **Depends on:** SPEC 01
 > **Date:** 2026-10-31
 > **Objective:** Port the landing page in `references/templates/home-about/home.jsx` to `/`, move the library to `/games`, and add the "Inicio" and "Acerca de" links to the nav, without building the About page.
@@ -152,6 +152,12 @@ Conventions (same as SPEC 01):
 | Hydration mismatch from `toLocaleString("es-ES")` in the ticker and top list | Data is static and Node ships full ICU, as in SPEC 01. Covered by the "no hydration warnings" criterion. |
 | Ported CSS references a `@keyframes` not present in `globals.css`, so an animation silently does nothing | Step 1 explicitly checks for and copies missing keyframes; the side-by-side criterion catches leftovers. |
 | Ported CSS overrides existing rules | The three sections only use new selectors (`.home*`, `.feature-*`, `.mini-*`, `.stat*`, `.activity-*`, `.tick*`, `.top-*`, `.price*`, `.pc-*`, `.faq-*`, `.final-*`, `.reveal`); the CSS diff against the SPEC 01 stylesheet shows additions only. |
+
+## Implementation notes
+
+- Known gap, accepted: the nav prefetches `/about`, which 404s by design until the About spec, so every page logs one failed `/about?_rsc=…` request. There are no hydration warnings.
+- Known gap, from before this spec: at 375px the SPEC 01 nav overflows by 20px (the ≡ button ends at 395px). The reference template has the same overflow. To fix in a later spec.
+- `NavButton` gained an optional `style` prop for the full-width pricing button.
 
 ## What is **not** in this spec
 
