@@ -6,7 +6,7 @@ const PODIUM_CLASS = [" top1", " top2", " top3"];
 export function Leaderboard({ rows }: { rows: ScoreRow[] }) {
   return (
     <div className="leaderboard">
-      <h3>MEJORES PUNTUACIONES</h3>
+      <h3>HIGH SCORES</h3>
       {rows.map((r, i) => (
         <div key={r.name} className={"lb-row" + (PODIUM_CLASS[i] ?? "")}>
           <div className="rk">#{String(r.rank).padStart(2, "0")}</div>

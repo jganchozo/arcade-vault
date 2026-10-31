@@ -37,7 +37,7 @@ export function GameCard({ game }: { game: Game }) {
         <div className="desc">{game.short}</div>
         <div className="row">
           <div className="score-badge">
-            <span>MEJOR PUNTUACIÓN</span>
+            <span>HIGH SCORE</span>
             <b>{formatNumber(game.best)}</b>
           </div>
           <button
@@ -47,7 +47,7 @@ export function GameCard({ game }: { game: Game }) {
               open();
             }}
           >
-            JUGAR
+            PLAY
           </button>
         </div>
       </div>

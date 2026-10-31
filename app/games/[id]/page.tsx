@@ -25,33 +25,33 @@ export default async function GameDetailPage({ params }: PageProps<"/games/[id]"
         <div style={{ marginTop: 20 }} className="detail-info">
           <div className="detail-tags">
             <span>{game.category}</span>
-            <span>1 JUGADOR</span>
-            <span>TECLADO / TÁCTIL</span>
+            <span>1 PLAYER</span>
+            <span>KEYBOARD / TOUCH</span>
             <span>RETRO 1985</span>
           </div>
           <h2 className="neon-cyan">{game.title}</h2>
           <p>{game.long}</p>
           <div className="stat-strip">
             <div>
-              <div className="l">Partidas</div>
+              <div className="l">Plays</div>
               <div className="v">{game.plays}</div>
             </div>
             <div>
-              <div className="l">Mejor global</div>
+              <div className="l">Global best</div>
               <div className="v" style={{ color: "var(--magenta)", textShadow: "0 0 6px rgba(255,0,110,0.5)" }}>
                 {formatNumber(game.best)}
               </div>
             </div>
             <div>
-              <div className="l">Dificultad</div>
+              <div className="l">Difficulty</div>
               <div className="v" style={{ color: "var(--yellow)", textShadow: "0 0 6px rgba(245,255,0,0.5)" }}>
                 ★ ★ ★ ☆ ☆
               </div>
             </div>
           </div>
           <div className="detail-actions">
-            <NavButton href={`/games/${game.id}/play`} className="btn xl pulse">▶  JUGAR AHORA</NavButton>
-            <NavButton href="/games" className="btn ghost lg">VOLVER AL VAULT</NavButton>
+            <NavButton href={`/games/${game.id}/play`} className="btn xl pulse">▶  PLAY NOW</NavButton>
+            <NavButton href="/games" className="btn ghost lg">BACK TO THE VAULT</NavButton>
           </div>
         </div>
       </div>
