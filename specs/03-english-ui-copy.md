@@ -1,6 +1,6 @@
 # SPEC 03 — English UI copy
 
-> **Status:** Approved
+> **Status:** Implemented
 > **Depends on:** SPEC 01, SPEC 02
 > **Date:** 2026-10-31
 > **Objective:** Replace every piece of Spanish UI copy in the app with natural arcade English and switch number and date formatting to `en-US`, keeping game titles as brand names.
@@ -156,6 +156,15 @@ export type ScoreRow = { rank: number; name: string; score: number; date: string
 | `en-US` vs `es-ES` formatting differs between server and client and causes hydration mismatches | `formatNumber` pins `"en-US"` explicitly (never the runtime default locale), and Node ships full ICU. Covered by the "no hydration warnings" criterion. |
 | Renaming the `"TODOS"` literal misses a usage and breaks filtering | It's a literal type, so `npm run build` fails on any leftover `"TODOS"` comparison. |
 | Changing the date order changes seeded data | Only the template string changes; the `rand()` call order is untouched, so names and scores stay identical (criterion checks it). |
+
+## Implementation notes
+
+- Verified in step 8 on a production build: the three grep checks, `npm run lint`, `npm run build`, and a browser walk of every route at 1280px and 375px, signed in and signed out (pause, game over, save score, empty search, unknown URL). No hydration warnings.
+- Besides the home ticker, the accent grep also matches "Caída" in the CLASSIC GAMES feature description on `/`. It is the game's brand name, so it stays.
+- Leaderboards on `/games/*` and `/hall-of-fame` show the same player names and scores as before this spec, compared against a `main` build. No button or heading wraps more than before; several English labels are shorter than the Spanish ones.
+- Known gap, from SPEC 02: the nav prefetches `/about`, which 404s until the About spec, so every page logs one failed `/about?_rsc=…` request.
+- Known gap, from SPEC 01: at 375px the nav still overflows (page width 384px, the ≡ button ends at 384px), same as before this spec.
+- `next build` needs `NODE_ENV` unset (or `production`). With `NODE_ENV=development` exported in the shell, prerendering fails with a null hooks error.
 
 ## What is **not** in this spec
 
