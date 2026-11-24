@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { LEGACY_GAME_IDS } from "./lib/legacy-game-ids";
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -15,6 +16,14 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
+  },
+  // Old Spanish game URLs (before SPEC 04) → English ones, e.g. /games/caida/play → /games/drop/play.
+  async redirects() {
+    return Object.entries(LEGACY_GAME_IDS).map(([from, to]) => ({
+      source: `/games/${from}/:path*`,
+      destination: `/games/${to}/:path*`,
+      permanent: true,
+    }));
   },
 };
 
