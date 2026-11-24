@@ -24,14 +24,14 @@ const courierPrime = Courier_Prime({
 });
 
 export const metadata: Metadata = {
-  title: "Arcade Vault · Portal Retro",
+  title: "Arcade Vault · Retro Arcade Portal",
   description: "Arcade Vault, a retro arcade game portal",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="es"
+      lang="en"
       className={`${pressStart2P.variable} ${jetBrainsMono.variable} ${courierPrime.variable}`}
     >
       <body>

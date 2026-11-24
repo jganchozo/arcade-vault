@@ -1,11 +1,12 @@
 import type { ScoreRow } from "@/lib/games";
+import { formatNumber } from "@/lib/format";
 
 const PODIUM_CLASS = [" top1", " top2", " top3"];
 
 export function Leaderboard({ rows }: { rows: ScoreRow[] }) {
   return (
     <div className="leaderboard">
-      <h3>MEJORES PUNTUACIONES</h3>
+      <h3>HIGH SCORES</h3>
       {rows.map((r, i) => (
         <div key={r.name} className={"lb-row" + (PODIUM_CLASS[i] ?? "")}>
           <div className="rk">#{String(r.rank).padStart(2, "0")}</div>
@@ -13,7 +14,7 @@ export function Leaderboard({ rows }: { rows: ScoreRow[] }) {
             {r.name}
             <div style={{ fontSize: 10, color: "var(--ink-faint)", letterSpacing: "0.1em" }}>{r.date}</div>
           </div>
-          <div className="sc">{r.score.toLocaleString("es-ES")}</div>
+          <div className="sc">{formatNumber(r.score)}</div>
         </div>
       ))}
     </div>

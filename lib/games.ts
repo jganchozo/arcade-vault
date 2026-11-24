@@ -21,8 +21,8 @@ export const GAMES: Game[] = [
   {
     id: "bloque-buster",
     title: "BLOQUE BUSTER",
-    short: "Rebota la pelota y destruye muros de neón.",
-    long: "Pilota una nave-paleta y rebota un núcleo de plasma para pulverizar muros de bloques cromáticos. Cada nivel reorganiza la grilla en patrones imposibles. ¿Hasta dónde llegará tu racha?",
+    short: "Bounce the ball and smash neon walls.",
+    long: "Pilot a paddle ship and bounce a plasma core to pulverize walls of chromatic bricks. Every level rearranges the grid into impossible patterns. How far can your streak go?",
     category: "ARCADE",
     cover: "cover-bricks",
     color: "cyan",
@@ -32,8 +32,8 @@ export const GAMES: Game[] = [
   {
     id: "caida",
     title: "CAÍDA",
-    short: "Encaja las piezas antes de que el techo te aplaste.",
-    long: "Piezas geométricas descienden desde la oscuridad. Rótalas, encástralas y limpia líneas para sobrevivir. La velocidad aumenta sin piedad cada 10 líneas.",
+    short: "Fit the pieces before the ceiling crushes you.",
+    long: "Geometric pieces fall out of the darkness. Rotate them, lock them in and clear lines to survive. The speed ramps up mercilessly every 10 lines.",
     category: "PUZZLE",
     cover: "cover-tetro",
     color: "magenta",
@@ -43,8 +43,8 @@ export const GAMES: Game[] = [
   {
     id: "serpentina",
     title: "SERPENTINA",
-    short: "Crece sin morder tu propia cola.",
-    long: "Una serpiente de luz recorre la grilla buscando núcleos magenta. Cada bocado la alarga y la hace más veloz. Un movimiento en falso y se devora a sí misma.",
+    short: "Grow without biting your own tail.",
+    long: "A serpent of light roams the grid hunting magenta cores. Every bite makes it longer and faster. One wrong move and it devours itself.",
     category: "ARCADE",
     cover: "cover-snake",
     color: "green",
@@ -54,8 +54,8 @@ export const GAMES: Game[] = [
   {
     id: "gloton",
     title: "GLOTÓN",
-    short: "Devora puntos y escapa de los fantasmas.",
-    long: "Un círculo glotón patrulla un laberinto coleccionando puntos luminosos. Cuatro espectros lo persiguen, pero cada cierto tiempo aparece una píldora que invierte los papeles.",
+    short: "Gobble dots and escape the ghosts.",
+    long: "A hungry circle patrols a maze collecting glowing dots. Four specters chase it, but every so often a pill appears that turns the tables.",
     category: "ARCADE",
     cover: "cover-glot",
     color: "yellow",
@@ -65,8 +65,8 @@ export const GAMES: Game[] = [
   {
     id: "invasores",
     title: "INVASORES",
-    short: "Defiende el planeta de filas alienígenas.",
-    long: "Olas de pixeles hostiles descienden formación tras formación. Mueve tu cañón en horizontal y abre fuego con precisión, antes de que toquen la superficie.",
+    short: "Defend the planet from rows of aliens.",
+    long: "Waves of hostile pixels descend formation after formation. Slide your cannon side to side and fire with precision before they reach the surface.",
     category: "SHOOTER",
     cover: "cover-invaders",
     color: "green",
@@ -76,8 +76,8 @@ export const GAMES: Game[] = [
   {
     id: "rocas",
     title: "ROCAS",
-    short: "Pulveriza asteroides en gravedad cero.",
-    long: "Tu nave triangular flota en vacío absoluto. Dispara y rota para dividir rocas en fragmentos cada vez más pequeños. Cuidado con los OVNIs en el horizonte.",
+    short: "Blast asteroids in zero gravity.",
+    long: "Your triangular ship drifts through the void. Shoot and rotate to split rocks into ever smaller fragments. Watch out for UFOs on the horizon.",
     category: "SHOOTER",
     cover: "cover-rocas",
     color: "yellow",
@@ -87,8 +87,8 @@ export const GAMES: Game[] = [
   {
     id: "ranaria",
     title: "RANARIA",
-    short: "Cruza la autopista de pixeles.",
-    long: "Salta entre carriles de coches a toda velocidad y troncos a la deriva en el río. Llega a los nenúfares antes de que se acabe el tiempo.",
+    short: "Cross the pixel highway.",
+    long: "Hop across lanes of speeding cars and logs drifting down the river. Reach the lily pads before time runs out.",
     category: "ARCADE",
     cover: "cover-rana",
     color: "green",
@@ -98,8 +98,8 @@ export const GAMES: Game[] = [
   {
     id: "duelo-pixel",
     title: "DUELO PIXEL",
-    short: "Dos paletas. Una pelota. Reflejos máximos.",
-    long: "El duelo más puro: dos paletas verticales se enfrentan por rebotar una pelota luminosa. Modo solitario contra la CPU o partida local a dos jugadores.",
+    short: "Two paddles. One ball. Maximum reflexes.",
+    long: "The purest duel: two vertical paddles battle over a glowing ball. Play solo against the CPU or a local two-player match.",
     category: "VERSUS",
     cover: "cover-duelo",
     color: "cyan",
@@ -108,7 +108,7 @@ export const GAMES: Game[] = [
   },
 ];
 
-export const CATEGORIES: ("TODOS" | GameCategory)[] = ["TODOS", "ARCADE", "PUZZLE", "SHOOTER", "VERSUS"];
+export const CATEGORIES: ("ALL" | GameCategory)[] = ["ALL", "ARCADE", "PUZZLE", "SHOOTER", "VERSUS"];
 
 const PLAYERS = [
   "PX_KAI", "NEONFOX", "Z3R0COOL", "M00NRYU", "VAULT_07", "GLITCHA",
@@ -136,7 +136,7 @@ export function seededScores(seed: number, count = 12): ScoreRow[] {
     const score = base - i * Math.floor(2000 + rand() * 4000);
     const day = String(1 + Math.floor(rand() * 28)).padStart(2, "0");
     const mon = String(1 + Math.floor(rand() * 12)).padStart(2, "0");
-    rows.push({ rank: i + 1, name, score: Math.max(score, 1000), date: `${day}/${mon}/2026` });
+    rows.push({ rank: i + 1, name, score: Math.max(score, 1000), date: `${mon}/${day}/2026` });
   }
   return rows.sort((a, b) => b.score - a.score).map((r, i) => ({ ...r, rank: i + 1 }));
 }

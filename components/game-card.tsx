@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useRef } from "react";
 import { GameCover } from "@/components/game-cover";
 import type { Game } from "@/lib/games";
+import { formatNumber } from "@/lib/format";
 
 const BUTTON_VARIANT: Partial<Record<Game["color"], string>> = { magenta: "magenta", yellow: "yellow" };
 
@@ -36,8 +37,8 @@ export function GameCard({ game }: { game: Game }) {
         <div className="desc">{game.short}</div>
         <div className="row">
           <div className="score-badge">
-            <span>MEJOR PUNTUACIÓN</span>
-            <b>{game.best.toLocaleString("es-ES")}</b>
+            <span>HIGH SCORE</span>
+            <b>{formatNumber(game.best)}</b>
           </div>
           <button
             className={"btn " + (BUTTON_VARIANT[game.color] ?? "")}
@@ -46,7 +47,7 @@ export function GameCard({ game }: { game: Game }) {
               open();
             }}
           >
-            JUGAR
+            PLAY
           </button>
         </div>
       </div>

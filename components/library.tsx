@@ -6,11 +6,11 @@ import { CATEGORIES, GAMES } from "@/lib/games";
 
 export function Library() {
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState<(typeof CATEGORIES)[number]>("TODOS");
+  const [category, setCategory] = useState<(typeof CATEGORIES)[number]>("ALL");
 
   const filtered = GAMES.filter(
     (g) =>
-      (category === "TODOS" || g.category === category) &&
+      (category === "ALL" || g.category === category) &&
       g.title.toLowerCase().includes(query.toLowerCase()),
   );
 
@@ -22,7 +22,7 @@ export function Library() {
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Buscar un juego por nombre…"
+            placeholder="Search a game by name…"
           />
         </div>
         <div className="av-chips">
@@ -41,9 +41,9 @@ export function Library() {
         {filtered.length === 0 && (
           <div style={{ gridColumn: "1 / -1", textAlign: "center", padding: 80, color: "var(--ink-faint)" }}>
             <div className="pixel" style={{ fontSize: 14, color: "var(--magenta)", marginBottom: 12 }}>
-              NO HAY RESULTADOS
+              NO RESULTS
             </div>
-            <div>Intenta otra búsqueda o categoría.</div>
+            <div>Try another search or category.</div>
           </div>
         )}
       </div>

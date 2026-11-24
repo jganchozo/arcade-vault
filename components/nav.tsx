@@ -32,34 +32,34 @@ export function Nav() {
           </div>
         </Link>
         <div className="links">
-          <Link href="/" className={activeClass("home")}>Inicio</Link>
-          <Link href="/games" className={activeClass("library")}>Biblioteca</Link>
-          <Link href="/hall-of-fame" className={activeClass("hall-of-fame")}>Salón de la Fama</Link>
-          <Link href="/about" className={activeClass("about")}>Acerca de</Link>
+          <Link href="/" className={activeClass("home")}>Home</Link>
+          <Link href="/games" className={activeClass("library")}>Library</Link>
+          <Link href="/hall-of-fame" className={activeClass("hall-of-fame")}>Hall of Fame</Link>
+          <Link href="/about" className={activeClass("about")}>About</Link>
         </div>
         <div className="spacer"></div>
         <div className="coin-counter">
           <span className="coin"></span>
-          <span>CRÉDITOS · 03</span>
+          <span>CREDITS · 03</span>
         </div>
         {user ? (
           <button className="btn ghost auth-btn" onClick={signOut}>{user.name} ▾</button>
         ) : (
-          <button className="btn auth-btn" onClick={() => router.push("/sign-in")}>Iniciar Sesión</button>
+          <button className="btn auth-btn" onClick={() => router.push("/sign-in")}>Sign In</button>
         )}
-        <button className="btn ghost hamburger" onClick={() => setOpen(true)} aria-label="Menú">≡</button>
+        <button className="btn ghost hamburger" onClick={() => setOpen(true)} aria-label="Menu">≡</button>
       </nav>
 
       <div className={"av-mobile-backdrop" + (open ? " open" : "")} onClick={close}></div>
       <aside className={"av-mobile-panel" + (open ? " open" : "")}>
-        <div className="pixel neon-cyan" style={{ fontSize: 11, marginBottom: 16 }}>MENÚ</div>
-        <Link href="/" className={activeClass("home")} onClick={close}>Inicio</Link>
-        <Link href="/games" className={activeClass("library")} onClick={close}>Biblioteca</Link>
-        <Link href="/hall-of-fame" className={activeClass("hall-of-fame")} onClick={close}>Salón de la Fama</Link>
-        <Link href="/about" className={activeClass("about")} onClick={close}>Acerca de</Link>
-        <Link href="/sign-in" className={activeClass("sign-in")} onClick={close}>{user ? "Cuenta" : "Iniciar Sesión"}</Link>
+        <div className="pixel neon-cyan" style={{ fontSize: 11, marginBottom: 16 }}>MENU</div>
+        <Link href="/" className={activeClass("home")} onClick={close}>Home</Link>
+        <Link href="/games" className={activeClass("library")} onClick={close}>Library</Link>
+        <Link href="/hall-of-fame" className={activeClass("hall-of-fame")} onClick={close}>Hall of Fame</Link>
+        <Link href="/about" className={activeClass("about")} onClick={close}>About</Link>
+        <Link href="/sign-in" className={activeClass("sign-in")} onClick={close}>{user ? "Account" : "Sign In"}</Link>
         <div style={{ flex: 1 }}></div>
-        <div className="pixel" style={{ fontSize: 9, color: "var(--ink-faint)", letterSpacing: "0.16em" }}>CRÉDITOS · 03</div>
+        <div className="pixel" style={{ fontSize: 9, color: "var(--ink-faint)", letterSpacing: "0.16em" }}>CREDITS · 03</div>
       </aside>
     </>
   );
