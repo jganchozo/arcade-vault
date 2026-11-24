@@ -17,7 +17,7 @@ const nextConfig: NextConfig = {
       },
     },
   },
-  // Old Spanish game URLs (before SPEC 04) → English ones, e.g. /games/caida/play → /games/drop/play.
+  // Old Spanish game URLs (before SPEC 04) → English ones, e.g. /games/<old-id>/play → /games/<new-id>/play.
   async redirects() {
     return Object.entries(LEGACY_GAME_IDS).map(([from, to]) => ({
       source: `/games/${from}/:path*`,

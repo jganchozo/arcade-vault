@@ -1,6 +1,6 @@
 # SPEC 04 — English game names
 
-> **Status:** Approved
+> **Status:** Implemented
 > **Depends on:** SPEC 03
 > **Date:** 2026-11-23
 > **Objective:** Rename the eight games, their URLs and their internal cover classes to English, so no Spanish is left anywhere in the running app, while old links, saved scores and the fake leaderboards keep working exactly as before.
@@ -148,6 +148,16 @@ async redirects() {
 | Leaderboards change because seeds change | Seeds are fixed to the old id lengths in step 1, before any rename, and compared against a SPEC 03 build. |
 | Migrating `av_scores` runs on the server or corrupts data | It runs in a client `useEffect`, is wrapped in `try/catch`, and only rewrites the `game` field of entries whose id is in `LEGACY_GAME_IDS`. |
 | `next.config.ts` importing app code pulls in React or aliases | `lib/legacy-game-ids.ts` has no imports and is imported with a relative path. |
+
+## Implementation notes
+
+- Verified in step 5 on a production build: both grep checks, `npm run lint`, `npm run build`, and a browser walk at 1280px and 375px, signed in and out. No hydration warnings.
+- All 16 old URLs (`/games/<old-id>` and `/games/<old-id>/play`) return 308 to the new URL, which returns 200. Query strings are kept.
+- All 8 detail leaderboards and all 8 hall-of-fame tabs (including the "your best" row) are identical to a build taken before the rename.
+- `migrateSavedScores()` was checked with old, new, unknown and corrupt `av_scores` data: only old ids are rewritten, and corrupt data is left alone.
+- The sweep also translated a leftover Spanish CSS comment (`salón` → `hall of fame`) in `app/globals.css`.
+- At 375px the home mini-card title "BLOCK BUSTER" wraps to two lines, exactly as "BLOQUE BUSTER" did before. No other title, chip or button wraps.
+- Known gaps unchanged: the `/about` prefetch 404 and the 375px nav overflow.
 
 ## What is **not** in this spec
 
