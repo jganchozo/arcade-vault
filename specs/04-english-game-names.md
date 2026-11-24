@@ -1,6 +1,6 @@
 # SPEC 04 — English game names
 
-> **Status:** Draft
+> **Status:** Approved
 > **Depends on:** SPEC 03
 > **Date:** 2026-11-23
 > **Objective:** Rename the eight games, their URLs and their internal cover classes to English, so no Spanish is left anywhere in the running app, while old links, saved scores and the fake leaderboards keep working exactly as before.
