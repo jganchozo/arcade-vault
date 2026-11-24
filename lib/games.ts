@@ -13,6 +13,8 @@ export type Game = {
   color: NeonColor;
   best: number;
   plays: string;
+  /** Fixed leaderboard seed (the length of the pre-SPEC 04 id), so fake leaderboards don't change. */
+  seed: number;
 };
 
 export type ScoreRow = { rank: number; name: string; score: number; date: string };
@@ -28,6 +30,7 @@ export const GAMES: Game[] = [
     color: "cyan",
     best: 28450,
     plays: "12.4K",
+    seed: 13,
   },
   {
     id: "caida",
@@ -39,6 +42,7 @@ export const GAMES: Game[] = [
     color: "magenta",
     best: 184220,
     plays: "31.8K",
+    seed: 5,
   },
   {
     id: "serpentina",
@@ -50,6 +54,7 @@ export const GAMES: Game[] = [
     color: "green",
     best: 7820,
     plays: "9.1K",
+    seed: 10,
   },
   {
     id: "gloton",
@@ -61,6 +66,7 @@ export const GAMES: Game[] = [
     color: "yellow",
     best: 96400,
     plays: "27.2K",
+    seed: 6,
   },
   {
     id: "invasores",
@@ -72,6 +78,7 @@ export const GAMES: Game[] = [
     color: "green",
     best: 54190,
     plays: "18.0K",
+    seed: 9,
   },
   {
     id: "rocas",
@@ -83,6 +90,7 @@ export const GAMES: Game[] = [
     color: "yellow",
     best: 41200,
     plays: "15.6K",
+    seed: 5,
   },
   {
     id: "ranaria",
@@ -94,6 +102,7 @@ export const GAMES: Game[] = [
     color: "green",
     best: 18900,
     plays: "6.4K",
+    seed: 7,
   },
   {
     id: "duelo-pixel",
@@ -105,6 +114,7 @@ export const GAMES: Game[] = [
     color: "cyan",
     best: 24,
     plays: "4.2K",
+    seed: 11,
   },
 ];
 
