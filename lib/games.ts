@@ -13,14 +13,16 @@ export type Game = {
   color: NeonColor;
   best: number;
   plays: string;
+  /** Fixed leaderboard seed (the length of the pre-SPEC 04 id), so fake leaderboards don't change. */
+  seed: number;
 };
 
 export type ScoreRow = { rank: number; name: string; score: number; date: string };
 
 export const GAMES: Game[] = [
   {
-    id: "bloque-buster",
-    title: "BLOQUE BUSTER",
+    id: "block-buster",
+    title: "BLOCK BUSTER",
     short: "Bounce the ball and smash neon walls.",
     long: "Pilot a paddle ship and bounce a plasma core to pulverize walls of chromatic bricks. Every level rearranges the grid into impossible patterns. How far can your streak go?",
     category: "ARCADE",
@@ -28,10 +30,11 @@ export const GAMES: Game[] = [
     color: "cyan",
     best: 28450,
     plays: "12.4K",
+    seed: 13,
   },
   {
-    id: "caida",
-    title: "CAÍDA",
+    id: "drop",
+    title: "DROP",
     short: "Fit the pieces before the ceiling crushes you.",
     long: "Geometric pieces fall out of the darkness. Rotate them, lock them in and clear lines to survive. The speed ramps up mercilessly every 10 lines.",
     category: "PUZZLE",
@@ -39,10 +42,11 @@ export const GAMES: Game[] = [
     color: "magenta",
     best: 184220,
     plays: "31.8K",
+    seed: 5,
   },
   {
-    id: "serpentina",
-    title: "SERPENTINA",
+    id: "serpentine",
+    title: "SERPENTINE",
     short: "Grow without biting your own tail.",
     long: "A serpent of light roams the grid hunting magenta cores. Every bite makes it longer and faster. One wrong move and it devours itself.",
     category: "ARCADE",
@@ -50,21 +54,23 @@ export const GAMES: Game[] = [
     color: "green",
     best: 7820,
     plays: "9.1K",
+    seed: 10,
   },
   {
-    id: "gloton",
-    title: "GLOTÓN",
+    id: "chomper",
+    title: "CHOMPER",
     short: "Gobble dots and escape the ghosts.",
     long: "A hungry circle patrols a maze collecting glowing dots. Four specters chase it, but every so often a pill appears that turns the tables.",
     category: "ARCADE",
-    cover: "cover-glot",
+    cover: "cover-chomp",
     color: "yellow",
     best: 96400,
     plays: "27.2K",
+    seed: 6,
   },
   {
-    id: "invasores",
-    title: "INVASORES",
+    id: "invaders",
+    title: "INVADERS",
     short: "Defend the planet from rows of aliens.",
     long: "Waves of hostile pixels descend formation after formation. Slide your cannon side to side and fire with precision before they reach the surface.",
     category: "SHOOTER",
@@ -72,39 +78,43 @@ export const GAMES: Game[] = [
     color: "green",
     best: 54190,
     plays: "18.0K",
+    seed: 9,
   },
   {
-    id: "rocas",
-    title: "ROCAS",
+    id: "rocks",
+    title: "ROCKS",
     short: "Blast asteroids in zero gravity.",
     long: "Your triangular ship drifts through the void. Shoot and rotate to split rocks into ever smaller fragments. Watch out for UFOs on the horizon.",
     category: "SHOOTER",
-    cover: "cover-rocas",
+    cover: "cover-rocks",
     color: "yellow",
     best: 41200,
     plays: "15.6K",
+    seed: 5,
   },
   {
-    id: "ranaria",
-    title: "RANARIA",
+    id: "lily-hop",
+    title: "LILY HOP",
     short: "Cross the pixel highway.",
     long: "Hop across lanes of speeding cars and logs drifting down the river. Reach the lily pads before time runs out.",
     category: "ARCADE",
-    cover: "cover-rana",
+    cover: "cover-lily",
     color: "green",
     best: 18900,
     plays: "6.4K",
+    seed: 7,
   },
   {
-    id: "duelo-pixel",
-    title: "DUELO PIXEL",
+    id: "pixel-duel",
+    title: "PIXEL DUEL",
     short: "Two paddles. One ball. Maximum reflexes.",
     long: "The purest duel: two vertical paddles battle over a glowing ball. Play solo against the CPU or a local two-player match.",
     category: "VERSUS",
-    cover: "cover-duelo",
+    cover: "cover-duel",
     color: "cyan",
     best: 24,
     plays: "4.2K",
+    seed: 11,
   },
 ];
 

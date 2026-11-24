@@ -13,7 +13,7 @@ type TopPlayer = { rank: number; player: string; score: number };
 type Faq = { q: string; a: string };
 
 const FEATURES: Feature[] = [
-  { icon: "GAMEPAD", title: "CLASSIC GAMES", desc: "Bloque Buster, Caída, Serpentina and many more. The best arcade games of all time in one place.", color: "cyan" },
+  { icon: "GAMEPAD", title: "CLASSIC GAMES", desc: "Block Buster, Drop, Serpentine and many more. The best arcade games of all time in one place.", color: "cyan" },
   { icon: "FREE", title: "100% FREE", desc: "No subscriptions, no hidden fees. Every game is free to play.", color: "yellow" },
   { icon: "TROPHY", title: "LADDER BOARDS", desc: "Compete with players from around the world. Climb the rankings and prove who's the best.", color: "magenta" },
   { icon: "ROCKET", title: "ALWAYS GROWING", desc: "We add new games all the time. Come back often, there's always something new to play.", color: "green" },
@@ -26,13 +26,13 @@ const STATS: Stat[] = [
 ];
 
 const TICKER: TickerRow[] = [
-  { player: "NEONFOX", game: "Caída", score: 184220, ago: "2 min ago", color: "magenta" },
-  { player: "PX_KAI", game: "Glotón", score: 96400, ago: "5 min ago", color: "yellow" },
-  { player: "Z3R0COOL", game: "Invasores", score: 54190, ago: "8 min ago", color: "green" },
-  { player: "VAULT_07", game: "Rocas", score: 41200, ago: "12 min ago", color: "cyan" },
-  { player: "GLITCHA", game: "Bloque Buster", score: 28450, ago: "18 min ago", color: "cyan" },
-  { player: "ARKADYA", game: "Serpentina", score: 7820, ago: "24 min ago", color: "green" },
-  { player: "CYBER_LU", game: "Ranaria", score: 18900, ago: "31 min ago", color: "yellow" },
+  { player: "NEONFOX", game: "Drop", score: 184220, ago: "2 min ago", color: "magenta" },
+  { player: "PX_KAI", game: "Chomper", score: 96400, ago: "5 min ago", color: "yellow" },
+  { player: "Z3R0COOL", game: "Invaders", score: 54190, ago: "8 min ago", color: "green" },
+  { player: "VAULT_07", game: "Rocks", score: 41200, ago: "12 min ago", color: "cyan" },
+  { player: "GLITCHA", game: "Block Buster", score: 28450, ago: "18 min ago", color: "cyan" },
+  { player: "ARKADYA", game: "Serpentine", score: 7820, ago: "24 min ago", color: "green" },
+  { player: "CYBER_LU", game: "Lily Hop", score: 18900, ago: "31 min ago", color: "yellow" },
 ];
 
 const TOP_PLAYERS: TopPlayer[] = [

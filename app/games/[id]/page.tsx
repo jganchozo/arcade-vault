@@ -14,7 +14,7 @@ export default async function GameDetailPage({ params }: PageProps<"/games/[id]"
   const game = getGame(id);
   if (!game) notFound();
 
-  const scores = seededScores(id.length * 17 + 3, 10);
+  const scores = seededScores(game.seed * 17 + 3, 10);
 
   return (
     <div className="av-detail fade-in">

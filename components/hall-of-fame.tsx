@@ -11,10 +11,10 @@ const PODIUM_CLASS = [" top1", " top2", " top3"];
 export function HallOfFame() {
   const { user } = useSession();
   const [tab, setTab] = useState(GAMES[0].id);
-  const rows = seededScores(tab.length * 23 + 7, 12);
   const game = GAMES.find((g) => g.id === tab)!;
+  const rows = seededScores(game.seed * 23 + 7, 12);
   // Fake "your best" entry, derived like the template; there are no real scores yet.
-  const youRank = Math.floor(8 + (tab.length % 4));
+  const youRank = Math.floor(8 + (game.seed % 4));
   const youScore = rows[5].score - 2400;
 
   return (
